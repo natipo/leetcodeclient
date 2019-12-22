@@ -2,8 +2,8 @@
 
 leetcode:
   url: https://leetcode.com/graphql
-  #problemId: two-sum
-  problemId: find-elements-in-a-contaminated-binary-tree
+  problemId: two-sum
+  #problemId: find-elements-in-a-contaminated-binary-tree
   output:
     lang: java
     dir: ./output

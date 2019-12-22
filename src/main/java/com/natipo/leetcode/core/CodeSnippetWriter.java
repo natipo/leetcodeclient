@@ -1,5 +1,6 @@
 package com.natipo.leetcode.core;
 
+import com.natipo.leetcode.core.codeparser.CodeParser;
 import com.natipo.leetcode.model.CodeSnippet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,18 +16,18 @@ import java.util.List;
 @Component
 public class CodeSnippetWriter {
 
-    private final JavaCodeParser codeParser;
+    private final CodeParser codeParser;
 
     @Value("${leetcode.output.dir}")
     private String outputDir;
 
     @Autowired
-    public CodeSnippetWriter(JavaCodeParser codeParser) {
+    public CodeSnippetWriter(CodeParser codeParser) {
         this.codeParser = codeParser;
     }
 
     public void writeToFile(String problemId, CodeSnippet codeSnippet) throws IOException {
-        String fileName = codeParser.findClassName(codeSnippet.getCode()) + "." + codeSnippet.getLangSlug();
+        String fileName = codeParser.findClassName(codeSnippet.getCode()) + "." + codeParser.getFileExtension();
         List<String> lines = codeParser.getLines(codeSnippet.getCode());
         Files.createDirectories(Paths.get(outputDir, problemId));
         Path file = Paths.get(outputDir, problemId, fileName);
