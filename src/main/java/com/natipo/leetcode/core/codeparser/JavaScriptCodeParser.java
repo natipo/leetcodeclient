@@ -9,6 +9,6 @@ public class JavaScriptCodeParser extends CodeParser {
 
     @Override
     String getClassNameRegex() {
-        return "^var\\s(.*)\\s=\\sfunction\\(root\\)\\s\\{";
+        return "^var\\s(.*)\\s=\\sfunction\\(.*$";
     }
 }
