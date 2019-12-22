@@ -1,0 +1,11 @@
+#logging.level.org.springframework.web.client.RestTemplate: DEBUG
+
+leetcode:
+  url: https://leetcode.com/graphql
+  #problemId: two-sum
+  problemId: find-elements-in-a-contaminated-binary-tree
+  output:
+    lang: java
+    dir: ./output
+
+spring.profiles.active: default
